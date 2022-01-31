@@ -13,13 +13,13 @@
     <nav>
     <ul class="menu">
       
-      <li><a href="/">Home</a></li>
+      <li><a href="https://denkjo180398.github.io/bloggingsite-denk.github.io/">Home</a></li>
       
-      <li><a href="/about/">About</a></li>
+      <li><a href="https://denkjo180398.github.io/bloggingsite-denk.github.io/about/">About</a></li>
       
-      <li><a href="/categories/">Menu</a></li>
+      <li><a href="https://denkjo180398.github.io/bloggingsite-denk.github.io/categories/">Menu</a></li>
       
-      <li><a href="/tags/">QuickFind</a></li>
+      <li><a href="https://denkjo180398.github.io/bloggingsite-denk.github.io/tags/">QuickFind</a></li>
       
     </ul>
     <hr/>
@@ -510,61 +510,6 @@ Integer num = Integer.valueOf(10);
 <pre><code class="language-java">int i = number.intValue();
 </code></pre>
 <h3 id="referenztypen">Referenztypen</h3>
-
-</main>
-
-  <footer>
-  
-  
-  <hr/>
-  © <a href="">Denk Jonas</a> 2022 | <a href="https://github.com/DenkJo180398">Github</a> | <a href="https://www.instagram.com/thejoesy/">Instagram</a>
-  
-  </footer>
-  </body>
-</html>
-
-<pre><code class="language-java">public class TestDriver{
-    private Transportmittel transport;
-    
-    public void setTransportMittel(Transportmittel transport){
-        this.trasport = transport;
-    }
-    public void writeData(){
-        System.out.println(transport.toString()); 
-    }
-    
-    public static void main(String args){
-        TestDriver td = new TestDriver();
-        
-        td.setTransportMittel(new Auto());
-        td.writeData();
-    }
-}
-</code></pre>
-<p>In diesem Beispiel wissen wir, dass ein <em>Transportmittel</em> eine <code>toString()</code>Methode besitzt und wir können diese zur Compilezeit in der Methode <code>writeData()</code>verwenden.
-Zur Laufzeit wird allerdings in der <em>main</em> Methode ein Objekt des Typs <em>Auto</em> erzeugt und übergeben, d.h. in der Methode <code>writeData()</code>wird zur Laufzeit entschieden, dass <code>toString()</code>aus der Klasse <em>Auto</em> aufgerufen wird.</p>
-<h4 id="sichtbarkeiten">Sichtbarkeiten</h4>
-<ul>
-<li>public: uneingeschränkter Zugriff</li>
-<li>private: nur innerhalb der eigenen Klasse</li>
-<li>protected: Zugriff aus der Klasse und deren Subklassen</li>
-<li>default (keine Sichtbarkeit angegeben): Zugriff für Klassen des Packages</li>
-</ul>
-<h4 id="sichtbarkeiten-und-vererbung">Sichtbarkeiten und Vererbung</h4>
-<ul>
-<li>
-<p>public: Attribute und Methoden werden vererbt</p>
-</li>
-<li>
-<p>private: Attribute und Methoden werden <strong>nicht</strong> vererbt</p>
-</li>
-<li>
-<p>protected: Attribute und Methoden werden vererbt</p>
-</li>
-<li>
-<p>default (keine Sichtbarkeit angegeben): Attribute und Methoden werden nur innerhalb eines Packages vererbt</p>
-</li>
-</ul>
 
 </main>
 
