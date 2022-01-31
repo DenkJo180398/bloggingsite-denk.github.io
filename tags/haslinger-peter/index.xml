@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Haslinger Peter on BloggingSite - Denk</title>
+    <link>https://bloggingsite-denk.github.io/tags/haslinger-peter/</link>
+    <description>Recent content in Haslinger Peter on BloggingSite - Denk</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 20 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://bloggingsite-denk.github.io/tags/haslinger-peter/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>02 HashCode und Equals</title>
+      <link>https://bloggingsite-denk.github.io/note/2021/10/20/another-note/</link>
+      <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bloggingsite-denk.github.io/note/2021/10/20/another-note/</guid>
+      <description>hashCode, equals Methode hashCode() Die Methode hashCode liefert einen möglichst eindeutigen Wert in Form eines int zur Identifikation des Inhalts eines Objekts zurück. Dieser Wert wird üblicherweise anhand der Eigenschaften des implementierenden Objekts berechnet. Wenn zwei Objekte einen unterschiedlichen hashCode besitzen, können Sie inhaltlich nicht gleich sein. Besitzen zwei Objekte einen identischen hashcode, können sie inhaltlich gleich sein, müssen aber nicht. Außerdem sollte die Berechnung des hashCodes schnell möglich sein.</description>
+    </item>
+    
+    <item>
+      <title>01 Einführung JUnit</title>
+      <link>https://bloggingsite-denk.github.io/note/2021/10/14/another-note/</link>
+      <pubDate>Thu, 14 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bloggingsite-denk.github.io/note/2021/10/14/another-note/</guid>
+      <description>JUnit 4 - Automatisiertes Testen Grundlagen JUnit ist ein Framework zum Testen von Java-Programmen, das besonders für automatisierte Unit-Tests einzelner Units (das sind entweder Klassen oder auch nur Methoden) geeignet ist.
+Diese Anleitung bezieht sich auf JUnit 4. Um JUnit verwenden zu können, muss junit.jar als Bibliothek verfügbar sein.
+ Maven Repository: https://mvnrepository.com/artifact/junit/junit/4.12 Maven?  https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html https://www.jetbrains.com/help/idea/maven-support.html   jUnit5: https://www.baeldung.com/junit-5  Begriffsdefinitionen  Testklasse/Testcode: Als Testklasse wird eine Klasse bezeichnet, die Methoden zum Testen von Code enthält.</description>
+    </item>
+    
+    <item>
+      <title>03 TDD TextDrivenDevelopment</title>
+      <link>https://bloggingsite-denk.github.io/note/2021/09/27/another-note/</link>
+      <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bloggingsite-denk.github.io/note/2021/09/27/another-note/</guid>
+      <description>Test Driven Development CLIL (Content and Language Integrated Learning) What is Test Driven Development? The steps of test first development (TFD) are overviewed in the UML activity diagram of Figure 1 .
+ The first step is to quickly add a test, basically just enough code to fail. Next you run your tests, often the complete test suite although for sake of speed you may decide to run only a subset, to ensure that the new test does in fact fail.</description>
+    </item>
+    
+    <item>
+      <title>04 Solid</title>
+      <link>https://bloggingsite-denk.github.io/note/2021/09/27/another-note/</link>
+      <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bloggingsite-denk.github.io/note/2021/09/27/another-note/</guid>
+      <description>Objektorientiertes Design S.O.L.I.D Software Development Was ist S.O.L.I.D.? Zusammenführung der fünf wichtigsten Prinzipien des OOD (Objektorientiertes Design) Diese Prinzipien wurden von Robert C. Martin unter dem Namen SOLID Principles zusammengefasst. Quellen:
+ http://de.wikipedia.org/wiki/Prinzipien_objektorientierten_Designs http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod http://www.yellow-brick-code.org http://blog.gauffin.org/     Prinzip Beschreibung     Single responsibility principle Eine Klasse sollte nur eine Verantwortlichkeit haben.   Open/closed principle Wenige Abhängigkeiten, Abstraktion.   Liskov substitution principle (design by contract) Abgeleitete Klassen müssen durch die Basisklasse ersetzbar sein.</description>
+    </item>
+    
+    <item>
+      <title>00 StoffPrgEx01</title>
+      <link>https://bloggingsite-denk.github.io/note/2021/01/21/another-note/</link>
+      <pubDate>Thu, 21 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bloggingsite-denk.github.io/note/2021/01/21/another-note/</guid>
+      <description>Stoff Programmierübung mit Abgabe 20210128  OOP  UML lesen können Vererbung (extends) Interfaces (implements) OPTIONAL: [Abstrakte Klassen (abstract)] - falls nächste Woche besprochen wurde.   Strings  RegEx (CheatSheet dabei!) -&amp;gt; gute Übung z.B. Datumsprüfung   Algorithmus  Rekursion    </description>
+    </item>
+    
+    <item>
+      <title>00 JavaIntro</title>
+      <link>https://bloggingsite-denk.github.io/note/2020/12/10/another-note/</link>
+      <pubDate>Thu, 10 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://bloggingsite-denk.github.io/note/2020/12/10/another-note/</guid>
+      <description>SEW - Objektorientierte Programmierung mit Java Object-oriented programming (OOP)  Object-oriented programming (OOP) is a programming paradigm based on the concept of &amp;ldquo;objects&amp;rdquo;, which may contain data, in the form of fields, often known as attributes; and code, in the form of procedures, often known as methods.1
+  Programmparadigma - beschreibt die Denkweise (=Paradigma), wie eine reale Problemstellung programmtechnisch erfasst und beschrieben werden kann. Objekt - Ein Element, welches Funktionen, Methoden, Prozeduren, einen inneren Zustand, oder mehrere dieser Dinge besitzt.</description>
+    </item>
+    
+    <item>
+      <title>01 Namenskonventionen</title>
+      <link>https://bloggingsite-denk.github.io/note/2020/12/10/another-note/</link>
+      <pubDate>Thu, 10 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://bloggingsite-denk.github.io/note/2020/12/10/another-note/</guid>
+      <description>Namenskonventionen Wie in allen Programmiersprachen, gibt es auch in Java Konventionen für die Vergabe von Namen. Sie sind zwar nicht zwingend erforderlich, erleichtern aber das Lesen und Verständnis der Quelltexte ungemein und sollten daher unbedingt eingehalten werden.
+Klassennamen Klassennamen sollten Hauptwörter sein, da sie Objekte (&amp;ldquo;Dinge&amp;rdquo;) repräsentieren. Klassennamen beginnen stets mit einem Großbuchstaben (z.B. String, Vector oder Date). Besteht ein Klassenname aus mehreren Silben/Wörtern, so beginnen auch die Folgesilben/-wörter mit einem Großbuchstaben (z.</description>
+    </item>
+    
+    <item>
+      <title>02 Grundlagen und Datentypen</title>
+      <link>https://bloggingsite-denk.github.io/note/2020/12/10/another-note/</link>
+      <pubDate>Thu, 10 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://bloggingsite-denk.github.io/note/2020/12/10/another-note/</guid>
+      <description>Java Grundlagen und Datentypen Bevor wir uns in diesem Kapitel mit den Datentypen von Java befassen, sollen zunächst einmal die wichtigsten lexikalischen Eigenschaften der Sprache vorgestellt werden. Hierzu zählen der Eingabezeichensatz, die Kommentare und die Struktur von Bezeichnern.
+Eingabezeichen Ein Java-Programm besteht aus einer Folge von Unicode-Zeichen. Der Unicode-Zeichensatz fasst eine große Zahl internationaler Zeichensätze zusammen und integriert sie in einem einheitlichen Darstellungsmodell. Da die 256 verfügbaren Zeichen eines 8-Bit-Wortes bei weitem nicht ausreichen, um die über 30.</description>
+    </item>
+    
+    <item>
+      <title>03 Java IO Intro</title>
+      <link>https://bloggingsite-denk.github.io/note/2020/12/10/another-note/</link>
+      <pubDate>Thu, 10 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://bloggingsite-denk.github.io/note/2020/12/10/another-note/</guid>
+      <description>JAVA IO (Input Output)  This is just a short first glimpse. To go into detail we have to talk about Java Streams (wait-for-it&amp;hellip; 4th or 5th year!).
+ Link Overview   We had a look at https://www.geeksforgeeks.org/ and the for-each in java article&amp;hellip;
+  An overall pretty cool website: Learn X in Y minutes 
+ Java: https://learnxinyminutes.com/docs/java/    Another good source for information Baeldung</description>
+    </item>
+    
+    <item>
+      <title>04 Regular Expressions</title>
+      <link>https://bloggingsite-denk.github.io/note/2020/12/10/another-note/</link>
+      <pubDate>Thu, 10 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://bloggingsite-denk.github.io/note/2020/12/10/another-note/</guid>
+      <description>Regular Expressions in Java What are RegEx?  A regular expression defines a search pattern for strings. The abbreviation for regular expression is regex. The search pattern can be anything from a simple character, a fixed string or a complex expression containing special characters describing the pattern. The pattern defined by the regex may match one or several times or not at all for a given string.1
+ The following tables and explanations are just an overview of the most important RegEx elements, this is definitely not a full explanation of all possible combinations.</description>
+    </item>
+    
+    <item>
+      <title>05 OOP1</title>
+      <link>https://bloggingsite-denk.github.io/note/2020/12/10/another-note/</link>
+      <pubDate>Thu, 10 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://bloggingsite-denk.github.io/note/2020/12/10/another-note/</guid>
+      <description>Objektorientierte Programmierung Objektorientierte Programmierung (kurz OOP) ist das Programmierparadigma der 90er Jahre. Viele der heute verwendeten Programmiersprachen sind entweder von Grund auf objektorientiert oder wurden im Laufe der Zeit mit objektorientierten Erweiterungen versehen.
+Die grundlegenden Elemente der objektorientierten Programmierung (OOP) in Java sind unter anderem Klassen, Objekte und Interfaces.
+Abstraktion Eine der wichtigsten Ideen der objektorientierten Programmierung ist die Trennung zwischen Konzept und Umsetzung, etwa zwischen einem Bauteil und seinem Bauplan, oder einem technischen Handbuch und der konkreten Apparatur, die dadurch beschrieben wird.</description>
+    </item>
+    
+    <item>
+      <title>06 OOP2</title>
+      <link>https://bloggingsite-denk.github.io/note/2020/12/10/another-note/</link>
+      <pubDate>Thu, 10 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://bloggingsite-denk.github.io/note/2020/12/10/another-note/</guid>
+      <description>Objektorientierte Programmierung - Teil 2 Abstrakte Klassen und Methoden Abstrakte Klassen und Methoden werden mit dem Schlüsselwort abstract deklariert.
+Abstrakte Klassen Eine abstrakte Klasse wird üblicherweise als Basisklasse verwendet und darf nicht instanziiert werden. Sie kann abstrakte und nicht abstrakte Methoden enthalten und kann die Unterklasse einer abstrakten oder nicht abstrakten Klasse sein. Alle ihre abstrakten Methoden müssen von den Klassen definiert werden, die sie erweitern (extends), es sei denn, diese Unterklassen sind ebenfalls abstrakt.</description>
+    </item>
+    
+  </channel>
+</rss>

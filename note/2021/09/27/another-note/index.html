@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>04 Solid | BloggingSite - Denk</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Menu</a></li>
+      
+      <li><a href="/tags/">QuickFind</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">04 Solid</span></h1>
+<h2 class="author">Haslinger Peter / Hauser Klemens</h2>
+<h2 class="date">2021/09/27</h2>
+</div>
+
+<main>
+<h1 id="objektorientiertes-design">Objektorientiertes Design</h1>
+<h3 id="solid-software-development">S.O.L.I.D Software Development</h3>
+<h2 id="was-ist-solid">Was ist S.O.L.I.D.?</h2>
+<p>Zusammenführung der fünf wichtigsten Prinzipien des OOD (Objektorientiertes Design) Diese Prinzipien wurden von Robert C. Martin unter dem Namen SOLID Principles zusammengefasst.
+Quellen:</p>
+<ul>
+<li><a href="http://de.wikipedia.org/wiki/Prinzipien_objektorientierten_Designs">http://de.wikipedia.org/wiki/Prinzipien_objektorientierten_Designs</a></li>
+<li><a href="http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod">http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod</a></li>
+<li><a href="http://www.yellow-brick-code.org">http://www.yellow-brick-code.org</a></li>
+<li><a href="http://blog.gauffin.org/">http://blog.gauffin.org/</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Prinzip</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Single responsibility principle</strong></td>
+<td>Eine Klasse sollte nur eine Verantwortlichkeit haben.</td>
+</tr>
+<tr>
+<td><strong>Open/closed principle</strong></td>
+<td>Wenige Abhängigkeiten, Abstraktion.</td>
+</tr>
+<tr>
+<td><strong>Liskov substitution principle</strong></td>
+<td>(design by contract) Abgeleitete Klassen müssen durch die Basisklasse ersetzbar sein.</td>
+</tr>
+<tr>
+<td><strong>Interface segregation principle</strong></td>
+<td>Besser mehrere fein-granulare Interfaces, als ein umfangreiches Interface.</td>
+</tr>
+<tr>
+<td><strong>Dependency inversion principle</strong></td>
+<td>Klassen nicht direkt instanziieren, sondern in Form von Interfaces als Parameter übergeben (Dependency injection).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="single-responsibility-principle"><strong>Single responsibility principle</strong></h3>
+<blockquote>
+<p>A class should have only one reason to change.</p>
+</blockquote>
+<p><img src="./_img/SEW4-07-SingleResponsibility.png" alt="image-20210830105557813"></p>
+<p>Einfachste Regel, am häufigsten verletzt.
+Wer kennt nicht Klassen, die z.B. Daten speichern, manipulieren, E-Mails versenden und all
+das eventuell auch noch loggen. Was passiert wenn die Datenbank-Struktur sich verändert? Dann musste man nicht nur diese ändern sondern auch all die Klassen – meistens Verwaltungen oder Manager genannt – die all diese Verantwortlichkeiten hatten.
+Und darum geht es hier: eine Klasse darf nur einen Grund für Änderungen haben, sie darf nur eine Verantwortlichkeit haben .</p>
+<p>Beispiel:</p>
+<pre><code class="language-java">class Employee {
+	public Pay calculatePay () {...}
+	public void save () {...}
+	public String describeEmployee () {...}
+}
+</code></pre>
+<p>Diese Klasse hat gleich drei Verantwortlichkeiten!</p>
+<ul>
+<li>Berechnungslogik</li>
+<li>Datenbank Logik</li>
+<li>Reporting Logik</li>
+</ul>
+<h3 id="openclosed-principle"><strong>Open/closed principle</strong></h3>
+<blockquote>
+<p>Software entities (classes, modules, functions, etc.) should be open for extension
+but closed for modification.</p>
+</blockquote>
+<p><img src="./_img/SEW4-07-OpenclosedPrinciple.png" alt="image-20210830110325241"></p>
+<p>Jede Funktionseinheit soll erweiterbar sein bzw. darf nicht zu viele Abhängigkeiten haben. Wenn man allerdings ein verändertes Verhalten implementieren will, soll das nicht durch Veränderung des Codes sondern durch hinzufügen von neuen Funktionen passieren  (z.B. durch Vererbung, bestehende Funktionalität wird nicht verändert, es kommt aber neue hinzu).
+Das ist nur durch ausreichende Abstraktion zu erreichen. Wenn die Kernfunktionalität in eine abstrakte Basisklasse gekapselt ist, kann man das neue Verhalten in einer abgeleiteten Klasse
+implementieren.</p>
+<p>Beispiel für problematische Umsetzung:</p>
+<pre><code class="language-java">class GraphicEditor {
+    public void drawShape ( Shape s ) {
+        if ( s.m_type == 1)
+        	drawRectangle ( s );
+        else if ( s.m_type == 2)
+        	drawCircle ( s );
+        }
+    public void drawCircle ( Circle r ) {....}
+    public void drawRectangle ( Rectangle r ) {....}
+}
+class Shape {
+	int m_type;
+}
+class Rectangle extends Shape {
+    Rectangle () {
+    	super.m_type = 1;
+    }
+}
+class Circle extends Shape {
+    Circle () {
+    	super.m_type = 2;
+    }
+}
+</code></pre>
+<p>Der Graphikeditor kümmert sich selbst um das Zeichnen der Figuren, und muss jedes mal angepasst werden, falls eine neue Form hinzukommt.</p>
+<p><strong>Lösung:</strong></p>
+<pre><code class="language-java">class GraphicEditor {
+    public void drawShape ( Shape s ) {
+   		s.draw ();
+    }
+}
+class Shape {
+	abstract void draw ();
+}
+class Rectangle extends Shape {
+    public void draw () {
+    // draw the rectangle
+    }
+}
+</code></pre>
+<p>Einführung einer abstrakten <code>draw()</code> Methode.</p>
+<h3 id="liskov-substitution-principle"><strong>Liskov substitution principle</strong></h3>
+<blockquote>
+<p>Subtypes must be substitutable for their base types. (Barbara Liskov)</p>
+</blockquote>
+<p><img src="./_img/SEW4-07-LiskovSubstitution.png" alt="image-20210830111057184"></p>
+<p>Jede abgeleitete Klasse einer Basisklasse muss diese Klasse so implementieren, dass sie durch diese jederzeit ersetzbar ist.
+Jedes Mal, wenn man eine Basisfunktion so implementiert, dass diese was ganz anderes tut, als man grundsätzlich erwarten würde, verletzt man dieses Prinzip.</p>
+<p><strong>Beispiel für problematische Umsetzung:</strong></p>
+<pre><code class="language-java">class Bird {
+	public void fly(){}
+	public void eat(){}
+}
+class Crow extends Bird {}
+class Ostrich extends Bird { //Strauss
+	fly(){
+		throw new UnsupportedOperationException ();
+	}
+}
+public BirdTest{
+	public static void main( String [] args ){
+		List &lt; Bird &gt; birdList = new ArrayList &lt; Bird &gt;();
+		birdList.add( new Bird ());
+		birdList.add( new Crow ());
+		birdList.add( new Ostrich ());
+		letTheBirdsFly( birdList );
+	}
+	static void letTheBirdsFly( List &lt; Bird &gt; birdList ){
+		for ( Bird b : birdList ) {
+			b.fly();
+		}
+	}
+}
+</code></pre>
+<p>Beim Aufruf der main() Methode kommt es zu einer Exception beim Versuch den Strauß fliegen zu lassen…</p>
+<p><strong>Lösung:</strong></p>
+<pre><code class="language-java">class Bird{
+	public void eat(){}
+}
+class FlightBird extends Bird{
+	public void fly(){}
+}
+class NonFlightBird extends Bird {}
+</code></pre>
+<p>Einführung von neuen abgeleiteten Klassen.</p>
+<h3 id="interface-segregation-principle">Interface Segregation Principle</h3>
+<blockquote>
+<p>Clients should not be forced to depend on methods they do not use.</p>
+</blockquote>
+<p><img src="./_img/SEW4-07-InterfaceSegregationPrinciple.png" alt="image-20210830112228168"></p>
+<p>Das Interface Segregation Principle dient dazu, zu große Interfaces aufzuteilen bzw. zu vermeiden.
+Die Aufteilung soll gemäß der Anforderungen der Clients an die Interfaces gemacht werden - und zwar derart, dass die neuen Interfaces genau auf die Anforderungen der einzelnen Clients passen. Die Clients müssen also nur mit Interfaces agieren.
+Diese Interfaces können ausschließlich das, was die Clients benötigen.</p>
+<p><strong>Beispiel für problematische Umsetzung:</strong></p>
+<pre><code class="language-java">public interface Animal {
+    void fly();
+    void run();
+    void bark(); //bellen
+}
+public class Bird implements Animal {
+    public void bark() {
+    	throw new Exception ( &quot;Undefined bird property&quot; ); }
+    public void run() {
+    /* write code about running of the bird */ }
+    public void fly() {
+    /* write code about flying of the bird */ }
+}
+public class Cat implements Animal {
+	public void fly() {
+		throw new Exception ( &quot;Undefined cat property&quot; ); }
+	public void bark() {
+		throw new Exception ( &quot;Undefined cat property&quot; ); }
+	public void run() {
+	/* write code about running of the cat */ }
+}
+</code></pre>
+<p><strong>Lösung:</strong></p>
+<pre><code class="language-java">public interface Flyable {
+	void fly();
+}
+public interface Runnable {
+	void run();
+}
+public interface Barkable {
+	void bark();
+}
+public class Bird implements Flyable , Runnable {
+	public void run() {
+		/* write code about running of the bird */ }
+	public void fly() {
+		/* write code about flying of the bird */ }
+}
+public class Cat implements Runnable{
+	public void run() {
+		/* write code about running of the cat */ }
+}
+</code></pre>
+<p>Aufsplittung in mehrere Interfaces.</p>
+<h3 id="dependency-inversion-principle">Dependency Inversion Principle</h3>
+<blockquote>
+<ol>
+<li>High-level modules should not depend on low-level modules. Both should
+depend on abstractions.</li>
+<li>Abstractions should not depend upon details. Details should depend upon
+abstractions.</li>
+</ol>
+</blockquote>
+<p><img src="./_img/SEW4-07-DependencyInversionPrinciple.png" alt="image-20210830113100325"></p>
+<p>Keine Klasse sollte fremde Klassen instanziieren, sondern diese als Abstraktionen (z.B. Interfaces) in Form eines Parameters bekommen.
+Das führt dazu, dass die fremde Klasse als Black-Box fungieren kann, ihre Veränderungen würden nicht zu Veränderung dieser konkreten Klasse führen. (Reduktion der Kopplung von Modulen).</p>
+<p>Gegeben Sind die folgenden Klassen:</p>
+<pre><code class="language-java">// Interfaces
+public interface Reader { char getchar (); }
+public interface Writer { void putchar ( char c ); }
+// und deren Implementierungen
+public Keyboard implements Reader {...}
+public FileReader implements Reader {...}
+public FileRWriter implements Writer {...}
+public Printer implements Writer {...}
+</code></pre>
+<p><strong>Beispiel für eine schlechte Umsetzung:</strong></p>
+<p>Die Klasse <code>CharacterCopyTask</code> verwendet für die Kopiermethode die Interfaces Reader und Writer, kann also mit unterschiedlichen Eingabe- und Ausgabegeräten umgehen (z.B. von Datei einlesen, in eine Datei schreiben).</p>
+<pre><code class="language-java">class CharacterCopyTask {
+    private Reader reader;
+    private Writer writer;
+    
+    public CharacterCopyTask(){
+        reader = new FileReader(); // hardcoded reader
+        writer = new Printer();    // and writer
+    }
+    
+    void copy() {
+		int c;
+		while (( c = reader.getchar ()) != EOF ) {
+			writer.putchar(c);
+		}
+	}
+}
+</code></pre>
+<p>bzw.:</p>
+<pre><code class="language-java">class CharacterCopyTask2 {
+    void copy (FileReader reader , FileWriter writer ) {
+		int c;
+		while (( c = reader.getchar ()) != EOF ) {
+			writer.putchar (c);
+		}
+	}
+
+    void copy (Keyboard reader , FileWriter writer ) {
+		int c;
+		while (( c = reader.getchar ()) != EOF ) {
+			writer.putchar (c);
+		}
+	}
+
+}
+</code></pre>
+<p><strong>Beispiel für passende Umsetzung</strong> (nach Robert C. Martin):</p>
+<pre><code class="language-java">class CharacterCopyTask {
+    private Reader reader;
+    private Writer writer;
+    
+    public void setReader(Reader reader){ this.reader = reader;}
+    public void setWriter(Writer writer){ this.writer = writer;}
+    
+    void copy() {
+		int c;
+		while (( c = reader.getchar ()) != EOF ) {
+			writer.putchar(c);
+		}
+	}
+}
+</code></pre>
+<p>bzw.:</p>
+<pre><code class="language-java">class CharacterCopyTask {
+	void copy (Reader reader , Writer writer ) {
+		int c;
+		while (( c = reader.getchar ()) != EOF ) {
+			writer.putchar (c);
+		}
+	}
+}
+</code></pre>
+<h4 id="anmerkung---ansatz-aus-extreme-programming">Anmerkung - Ansatz aus Extreme Programming:</h4>
+<p>Einige dieser Prinzipien sind nicht immer sofort zu verwenden, sondern üblicherweise erst zu dem Zeitpunkt, da es zu einer Erweiterung des Codes kommt (Refactoring).
+Warum? Siehe z.B. <a href="https://wiki.c2.com/?YouArentGonnaNeedIt">https://wiki.c2.com/?YouArentGonnaNeedIt</a></p>
+<h3 id="übungsaufgaben">Übungsaufgaben</h3>
+<p>Gegeben ist folgender Code, der den Zusammenhang zwischen einem Arbeiter und seinen Vorgesetzten (Manager) beschreibt:</p>
+<pre><code class="language-java">class Worker {
+    public void work () {
+    	// ...working
+    }
+}
+class Manager {
+    private Worker worker;
+    public void setWorker ( Worker w ) {
+    	worker = w;
+    }
+    public void manage () {
+    	worker.work ();
+    }
+}
+</code></pre>
+<p>Es soll nun eine Erweiterung des Codes erfolgen, eine neue Klasse der <code>SuperWorker</code> wird eingeführt, der viel mehr arbeiten kann als ein normaler Arbeiter:</p>
+<pre><code class="language-java">class SuperWorker {
+    public void work () {
+    	// ...working much more
+    }
+}
+</code></pre>
+<ul>
+<li>Wie kann ein Code-Refactoring aussehen, dass auf diese neue Erweiterung eingeht?
+<ul>
+<li>Setze die Änderungen im Code um.</li>
+<li>Um welches OOD Prinzip handelt es sich?</li>
+<li>Ersetze die Kommentare durch z.B. eine aussagekräftige Konsolenausgabe.</li>
+<li>Erweitere in einem zweiten Schritt die Klasse Manager in der Form, dass er mehr als einen Arbeiter “managen” kann. (Standardaufgabe, kein OOD Prinzip!)</li>
+</ul>
+</li>
+</ul>
+<p>In einem nächsten Schritt soll wieder eine Erweiterung des Codes durchgeführt werden.
+Die Essenspause der Arbeiter soll mit aufgenommen werden. Die Arbeiter erhalten die folgende zusätzliche Methode:</p>
+<pre><code class="language-java">public void eat () {
+	// ...eating in lunch break
+}
+</code></pre>
+<p>● Erweitere den Code mit dieser Methode</p>
+<p>Damit noch nicht genug, die Firma hat sich nun auch noch Roboter zugelegt, die auch in die Implementierung aufgenommen werden sollen.</p>
+<pre><code class="language-java">class Robot {
+    public void work () {
+    	// ....working
+    }
+}		
+</code></pre>
+<p>Roboter machen keine Essenspausen, also muss wieder ein entsprechendes Refactoring durchgeführt werden:</p>
+<ul>
+<li>Wie kann das neuerliche Refactoring aussehen, dass auf die Erweiterung mit dem Roboter eingeht?
+<ul>
+<li>Setze die Änderungen im Code um.</li>
+<li>Um welches OOD Prinzip handelt es sich?</li>
+</ul>
+</li>
+</ul>
+
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  © <a href="">Denk Jonas</a> 2022 | <a href="https://github.com/DenkJo180398">Github</a> | <a href="https://www.instagram.com/thejoesy/">Instagram</a>
+  
+  </footer>
+  </body>
+</html>
+

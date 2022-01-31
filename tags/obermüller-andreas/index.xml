@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Obermüller Andreas on BloggingSite - Denk</title>
+    <link>https://bloggingsite-denk.github.io/tags/oberm%C3%BCller-andreas/</link>
+    <description>Recent content in Obermüller Andreas on BloggingSite - Denk</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 18 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://bloggingsite-denk.github.io/tags/oberm%C3%BCller-andreas/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fragen zu Informationssysteme am 18. Oktober 2021</title>
+      <link>https://bloggingsite-denk.github.io/note/2021/10/18/another-note/</link>
+      <pubDate>Mon, 18 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bloggingsite-denk.github.io/note/2021/10/18/another-note/</guid>
+      <description>10-2 Fragen zur Theorie von Informationssystemen Teil 2
+Denk Jonas
+ Welche Entscheidungen sind bei der Auswahl von Insy zu treffen. Geben Sie jeweils ein Beispiel    Hardwarearchitektur (Server, Storage, Netzwerk, Virtualisierung, OS, Middleware, Cloud, etc)
+  Softwarekriterien
+  Funktionalität
+  Qualität
+  Dokumentation
+  Leistung
+  Technologie
+  Standardsoftware oder Individual-Software
+  Proprietäre Software oder OpenSource
+   Welche Arten der Einführungsmöglichkeiten von InSy kennen Sie?</description>
+    </item>
+    
+    <item>
+      <title>Fragen und Übungen am 27. September 2021</title>
+      <link>https://bloggingsite-denk.github.io/note/2021/09/27/another-note/</link>
+      <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bloggingsite-denk.github.io/note/2021/09/27/another-note/</guid>
+      <description>Fragen und Übungen
+Denk Jonas
+ Nennen Sie auf Basis der Wissenstreppe nach North ein Beispiel für die Stufen &amp;ldquo;Zeichen-&amp;gt;Daten -&amp;gt; Information -&amp;gt; Wissen&amp;rdquo;  Zeichen: ein Character, Bsp: &amp;ldquo;x&amp;rdquo;
+Daten: ein Wort/Zeichenfolge/Zeichen mit einer Syntax (strukturierte Daten mit Zusammenhang, jedoch ohne Verwendungshinweis), Bsp: &amp;ldquo;Informationssysteme&amp;rdquo;
+Information: Daten welche in einen Kontext eingebunden sind und etwas aussagen, Bsp: &amp;ldquo;Fach: Informationssysteme um 10:10h&amp;rdquo;
+Wissen: besteht aus Daten und Informationen
+Bis zu welcher Stufe können zum aktuellen Stand der Technik und gemäß der Wissentreppe nach North Informationssysteme betriebliche Funktionen unterstützen?</description>
+    </item>
+    
+  </channel>
+</rss>

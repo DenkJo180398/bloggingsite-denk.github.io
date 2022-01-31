@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>02 Grundlagen und Datentypen | BloggingSite - Denk</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Menu</a></li>
+      
+      <li><a href="/tags/">QuickFind</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">02 Grundlagen und Datentypen</span></h1>
+<h2 class="author">Haslinger Peter</h2>
+<h2 class="date">2020/12/10</h2>
+</div>
+
+<main>
+<h1 id="java-grundlagen-und-datentypen">Java Grundlagen und Datentypen</h1>
+<p>Bevor wir uns in diesem Kapitel mit den Datentypen von Java befassen, sollen zunächst einmal die  wichtigsten lexikalischen Eigenschaften der Sprache vorgestellt werden. Hierzu zählen der  Eingabezeichensatz, die Kommentare und die Struktur von Bezeichnern.</p>
+<h3 id="eingabezeichen">Eingabezeichen</h3>
+<p>Ein Java-Programm besteht aus einer Folge von Unicode-Zeichen. Der Unicode-Zeichensatz fasst eine große Zahl internationaler Zeichensätze zusammen und integriert sie in einem einheitlichen Darstellungsmodell. Da die 256 verfügbaren Zeichen eines 8-Bit-Wortes bei weitem nicht ausreichen, um die über 30.000 unterschiedlichen Zeichen des Unicode-Zeichensatzes darzustellen, ist ein Unicode-Zeichen 2 Byte, also 16 Bit, lang. Der Unicode ist mit den ersten 128 Zeichen des ASCII- und mit den ersten 256 Zeichen des ISO-8859-1-Zeichensatzes kompatibel.</p>
+<h3 id="kommentare">Kommentare</h3>
+<p>Es gibt in Java drei Arten von Kommentaren:</p>
+<ul>
+<li><em>Einzeilige Kommentare</em> beginnen mit  // und enden am Ende der aktuellen Zeile.</li>
+<li><em>Mehrzeilige Kommentare</em> beginnen mit /* und enden mit */.  Sie können sich über mehrere Zeilen erstrecken.</li>
+<li><em>Dokumentationskommentare</em> beginnen mit /** und enden mit */ und können sich ebenfalls über mehrere Zeilen erstrecken.</li>
+</ul>
+<p>Kommentare derselben Art sind nicht schachtelbar. Ein Java-Compiler akzeptiert aber einen einzeiligen innerhalb eines mehrzeiligen Kommentars und umgekehrt.<br>
+Dokumentationskommentare dienen dazu, Programme im Quelltext zu dokumentieren. Mit Hilfe des Tools <strong>javadoc</strong> werden sie aus der Quelle extrahiert und in ein HTML-Dokument umgewandelt.</p>
+<h3 id="bezeichner">Bezeichner</h3>
+<p>Ein Bezeichner ist eine Sequenz von Zeichen, die dazu dient, die Namen von Variablen, Klassen oder Methoden zu spezifizieren. Ein Bezeichner in Java kann beliebig lang sein, und alle Stellen sind signifikant. Bezeichner müssen mit einem <em>Unicode-Buchstaben</em> beginnen (das sind die Zeichen &lsquo;A&rsquo; bis &lsquo;Z&rsquo;, &lsquo;a&rsquo; bis &lsquo;z&rsquo;, &lsquo;_&rsquo; und &lsquo;$') und dürfen dann weitere Buchstaben oder Ziffern enthalten.</p>
+<p>Java-Bezeichner dürfen jedoch nicht mit Schlüsselwörtern, den booleschen Literalen <strong>true</strong> und <strong>false</strong>
+oder dem Literal <strong>null</strong> übereinstimmen.</p>
+<h3 id="operatoren">Operatoren</h3>
+<p>Operatoren sind Zeichen, die zusammen mit Operanden für die Berechnung eines Ausdrucks (engl. expression) bzw. die Ermittlung eines Wertes verwendet werden. Die meisten Sprachen besitzen unäre und binäre Operatoren.
+<strong>Unäre</strong> (einstellige) Operatoren werden auf nur einen Operanden angewendet. Der Vorzeichen-Operator &lsquo;-&rsquo; (Minus) ist ein unärer Operator. Er ändert das Vorzeichen des ihm folgenden Operanden. Beim Ausdruck -1 wird der Vorzeichen-Operator auf die Konstante 1 angewendet und diese so in eine negative Zahl umgewandelt.
+<strong>Binäre</strong> (zweistellige) Operatoren werden auf zwei Operanden angewendet. Bei der Addition werden beispielsweise zwei Operanden über den Additionsoperator verknüpft.</p>
+<p>Seltener gibt es auch <strong>ternäre</strong> (dreistellige) Operatoren. In den Sprachen C/C++, JavaScript oder Java existiert beispielsweise nur der Fragezeichen-Operator mit drei Operatoren. Liefert in der Anweisung <em>Ausdruck ? b : c</em> der <em>Ausdruck</em> den Wert wahr, wird der Wert von b zurückgegeben, anderenfalls der Wert von c.</p>
+<h4 id="arithmetische-operatoren">Arithmetische Operatoren</h4>
+<table>
+<thead>
+<tr>
+<th><strong>Operator</strong></th>
+<th><strong>Bezeichnung</strong></th>
+<th><strong>Bedeutung</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td>Positives Vorzeichen</td>
+<td>+n ist gleichbedeutend mit n</td>
+</tr>
+<tr>
+<td>-</td>
+<td>Negatives Vorzeichen</td>
+<td>-n kehrt das Vorzeichen von n um</td>
+</tr>
+<tr>
+<td>+</td>
+<td>Summe</td>
+<td>a + b ergibt die Summe von a und b</td>
+</tr>
+<tr>
+<td>-</td>
+<td>Differenz</td>
+<td>a - b ergibt die Differenz von a und b</td>
+</tr>
+<tr>
+<td>*</td>
+<td>Produkt</td>
+<td>a * b ergibt das Produkt aus a und b</td>
+</tr>
+<tr>
+<td>/</td>
+<td>Quotient</td>
+<td>a / b ergibt den Quotienten von a und b</td>
+</tr>
+<tr>
+<td>%</td>
+<td>Restwert</td>
+<td>a % b ergibt den Rest der ganzzahligen Division von a durch b. In Java läßt sich dieser Operator auch auf Fließkommazahlen anwenden.</td>
+</tr>
+<tr>
+<td>++</td>
+<td>Präinkrement</td>
+<td>++a ergibt a+1 und erhöht a um 1</td>
+</tr>
+<tr>
+<td>++</td>
+<td>Postinkrement</td>
+<td>a++ ergibt a und erhöht a um 1</td>
+</tr>
+<tr>
+<td>&ndash;</td>
+<td>Prädekrement</td>
+<td>&ndash;a ergibt a-1 und verringert a um 1</td>
+</tr>
+<tr>
+<td>&ndash;</td>
+<td>Postdekrement</td>
+<td>a&ndash; ergibt a und verringert a um 1</td>
+</tr>
+</tbody>
+</table>
+<h4 id="relationale-operatoren">Relationale Operatoren</h4>
+<table>
+<thead>
+<tr>
+<th><strong>Operator</strong></th>
+<th><strong>Bezeichnung</strong></th>
+<th><strong>Bedeutung</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>==</td>
+<td>Gleich</td>
+<td>a == b ergibt true, wenn a gleich b ist. Sind a und b Referenztypen, so ist der Rückgabewert true, wenn beide Werte auf dasselbe Objekt zeigen.</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>Ungleich</td>
+<td>a != b ergibt true, wenn a ungleich b ist. Sind a und b Objekte, so ist der Rückgabewert true, wenn beide Werte auf unterschiedliche Objekte zeigen.</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>Kleiner</td>
+<td>a &lt; b ergibt true, wenn a kleiner b ist.</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>Kleiner gleich</td>
+<td>a &lt;= b ergibt true, wenn a kleiner oder gleich b ist.</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>Größer</td>
+<td>a &gt; b ergibt true, wenn a größer b ist.</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>Größer gleich</td>
+<td>a &gt;= b ergibt true, wenn a größer oder gleich b ist.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="logische-operatoren">Logische Operatoren</h4>
+<table>
+<thead>
+<tr>
+<th><strong>Operator</strong></th>
+<th><strong>Bezeichnung</strong></th>
+<th><strong>Bedeutung</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>!</td>
+<td>Logisches NICHT</td>
+<td>!a ergibt false, wenn a wahr ist, und true, wenn a false ist.</td>
+</tr>
+<tr>
+<td>&amp;&amp;</td>
+<td>UND</td>
+<td>a &amp;&amp; b ergibt true, wenn sowohl a als auch b wahr sind. Ist a bereits falsch, so wird false zurückgegeben und b nicht mehr ausgewertet.</td>
+</tr>
+<tr>
+<td>||</td>
+<td>ODER</td>
+<td>a || b ergibt true, wenn mindestens einer der beiden Ausdrücke a oder b wahr ist. Ist bereits a wahr, so wird true zurückgegeben und b nicht mehr ausgewertet.</td>
+</tr>
+<tr>
+<td>&amp;</td>
+<td>UND</td>
+<td>a &amp; b ergibt true, wenn sowohl a als auch b wahr sind. Beide Teilausdrücke werden ausgewertet.</td>
+</tr>
+<tr>
+<td>|</td>
+<td>ODER</td>
+<td>a | b ergibt true, wenn mindestens einer der beiden Ausdrücke a oder b wahr ist. Beide Teilausdrücke werden ausgewertet.</td>
+</tr>
+<tr>
+<td>^</td>
+<td>Exklusiv-ODER</td>
+<td>a ^ b ergibt true, wenn beide Ausdrücke einen unterschiedlichen Wahrheitswert haben.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="bitweise-operatoren">Bitweise Operatoren</h4>
+<table>
+<thead>
+<tr>
+<th><strong>Operator</strong></th>
+<th><strong>Bezeichnung</strong></th>
+<th><strong>Bedeutung</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>~</td>
+<td>Einerkomplement</td>
+<td>~a entsteht aus a, indem alle Bits von a invertiert werden.</td>
+</tr>
+<tr>
+<td>|</td>
+<td>Bitweises ODER</td>
+<td>a | b ergibt den Wert, der entsteht, wenn die korrespondierenden Bits von a und b miteinander ODER-verknüpft werden.</td>
+</tr>
+<tr>
+<td>&amp;</td>
+<td>Bitweises UND</td>
+<td>a &amp; b ergibt den Wert, der entsteht, wenn die korrespondierenden Bits von a und b miteinander UND-verknüpft werden.</td>
+</tr>
+<tr>
+<td>^</td>
+<td>Bitweises Exklusiv-ODER</td>
+<td>a ^ b ergibt den Wert, der entsteht, wenn die korrespondierenden Bits von a und b miteinander Exklusiv-ODER-verknüpft werden.</td>
+</tr>
+<tr>
+<td>&raquo;</td>
+<td>Rechtsschieben mit Vorzeichen</td>
+<td>a &raquo; b ergibt den Wert, der entsteht, wenn alle Bits von a um b Positionen nach rechts geschoben werden. Falls das höchstwertige Bit gesetzt ist (a also negativ ist), wird auch das höchstwertige Bit des Resultats gesetzt.</td>
+</tr>
+<tr>
+<td>&raquo;&gt;</td>
+<td>Rechtsschieben ohne Vorzeichen</td>
+<td>a &raquo;&gt; b ergibt den Wert, der entsteht, wenn alle Bits von a um b Positionen nach rechts geschoben werden. Dabei wird das höchstwertige Bit des Resultats immer auf 0 gesetzt.</td>
+</tr>
+<tr>
+<td>&laquo;</td>
+<td>Linksschieben</td>
+<td>a &laquo; b ergibt den Wert, der entsteht, wenn alle Bits von a um b Positionen nach links geschoben werden. Das höchstwertige Bit (also das Vorzeichen) erfährt keine besondere Behandlung.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="zuweisungsoperatoren">Zuweisungsoperatoren</h4>
+<table>
+<thead>
+<tr>
+<th><strong>Operator</strong></th>
+<th><strong>Bezeichnung</strong></th>
+<th><strong>Bedeutung</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=</td>
+<td>Einfache Zuweisung</td>
+<td>a = b weist a den Wert von b zu und liefert b als Rückgabewert.</td>
+</tr>
+<tr>
+<td>+=</td>
+<td>Additionszuweisung</td>
+<td>a += b weist a den Wert von a + b zu und liefert a + b als Rückgabewert.</td>
+</tr>
+<tr>
+<td>-=</td>
+<td>Subtraktionszuweisung</td>
+<td>a -= b weist a den Wert von a - b zu und liefert a - b als Rückgabewert.</td>
+</tr>
+<tr>
+<td>*=</td>
+<td>Multiplikationszuweisung</td>
+<td>a *= b weist a den Wert von a * b zu und liefert a * b als Rückgabewert.</td>
+</tr>
+<tr>
+<td>/=</td>
+<td>Divisionszuweisung</td>
+<td>a /= b weist a den Wert von a / b zu und liefert a / b als Rückgabewert.</td>
+</tr>
+<tr>
+<td>%=</td>
+<td>Modulo Zuweisung</td>
+<td>a %= b weist a den Wert von a % b zu und liefert a % b als Rückgabewert.</td>
+</tr>
+<tr>
+<td>&amp;=</td>
+<td>UND-Zuweisung</td>
+<td>a &amp;= b weist a den Wert von a &amp; b zu und liefert a &amp; b als Rückgabewert.</td>
+</tr>
+<tr>
+<td>|=</td>
+<td>ODER-Zuweisung</td>
+<td>a |= b weist a den Wert von a | b zu und liefert a | b als Rückgabewert.</td>
+</tr>
+<tr>
+<td>^=</td>
+<td>Exklusiv-ODER-Zuweisung</td>
+<td>a ^= b weist a den Wert von a ^ b zu und liefert a ^ b als Rückgabewert.</td>
+</tr>
+<tr>
+<td>&laquo;=</td>
+<td>Linksschiebezuweisung</td>
+<td>a &laquo;= b weist a den Wert von a &laquo; b zu und liefert a &laquo; b als Rückgabewert.</td>
+</tr>
+<tr>
+<td>&raquo;=</td>
+<td>Rechtsschiebezuweisung</td>
+<td>a &raquo;= b weist a den Wert von a &raquo; b zu und liefert a &raquo; b als Rückgabewert.</td>
+</tr>
+<tr>
+<td>&raquo;&gt;=</td>
+<td>Rechtsschiebezuweisung mit Nullexpansion</td>
+<td>a &raquo;&gt;= b weist a den Wert von a &raquo;&gt; b zu und liefert a &raquo;&gt; b als Rückgabewert.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="elementare-primitive-datentypen">Elementare (primitive) Datentypen</h2>
+<h5 id="integer-datentypen">Integer Datentypen</h5>
+<table>
+<thead>
+<tr>
+<th>Datentyp</th>
+<th>Wertebereich</th>
+<th>Speichergröße</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>byte</td>
+<td>-128 &hellip; 127</td>
+<td>1 Byte</td>
+</tr>
+<tr>
+<td>short</td>
+<td>-32768 &hellip; 32767</td>
+<td>2 Byte</td>
+</tr>
+<tr>
+<td>int</td>
+<td>-2.147.483.648 &hellip; 2.147.483.647</td>
+<td>4 Byte</td>
+</tr>
+<tr>
+<td>long</td>
+<td>-9.223.372.036.854.775.808 &hellip;9.223.372.036.854.775.807</td>
+<td>8 Byte</td>
+</tr>
+</tbody>
+</table>
+<h5 id="gleitkomma-datentypen">Gleitkomma-Datentypen</h5>
+<table>
+<thead>
+<tr>
+<th>Datentyp</th>
+<th>Genauigkeit</th>
+<th>Speichergröße</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>float</td>
+<td>7 Stellen</td>
+<td>4 Byte</td>
+</tr>
+<tr>
+<td>double</td>
+<td>15 Stellen</td>
+<td>8 Byte</td>
+</tr>
+</tbody>
+</table>
+<h5 id="zeichen-datentyp">Zeichen-Datentyp</h5>
+<table>
+<thead>
+<tr>
+<th>Datentyp</th>
+<th>Wertebereich</th>
+<th>Speichergröße</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>char</td>
+<td>Alle Unicode-Zeichen</td>
+<td>2 Byte</td>
+</tr>
+</tbody>
+</table>
+<h5 id="boolescher-datentyp">Boolescher Datentyp</h5>
+<table>
+<thead>
+<tr>
+<th>Datentyp</th>
+<th>Wertebereich</th>
+<th>Speichergröße</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>boolean</td>
+<td>true, false</td>
+<td>1 Byte</td>
+</tr>
+</tbody>
+</table>
+<h4 id="literale-für-primitive-datentypen">Literale für primitive Datentypen</h4>
+<p>Werte, die im Quelltext eingeben werden (z. B. Zahlen), werden als Literale bezeichnet. Für deren
+Schreibweise gelten entsprechende Regeln, damit der Datentyp ersichtlich ist.</p>
+<h5 id="numerische-datentypen">Numerische Datentypen</h5>
+<ul>
+<li>Für numerische Werte des Datentyps int können Sie beispielsweise die Vorzeichen +
+bzw. - und die Ziffern 0 … 9 verwenden (das Vorzeichen + kann entfallen).</li>
+<li>Als Dezimaltrennzeichen bei Fließkommawerten verwenden Sie einen Punkt.</li>
+<li>Für Fließkommawerte können Sie die Exponentialschreibweise verwenden. Den Wert
+4,56*10³ können Sie im Quelltext beispielsweise folgendermaßen eingeben: 4.56e3.
+Die Schreibweise 4.56E3 ist ebenfalls zulässig, die Verwendung des Kleinbuchstabens
+erleichtert jedoch die Lesbarkeit.</li>
+<li>Wenn Sie explizit den Datentyp long benötigen, müssen Sie das Suffix L verwenden
+(z. B. 126L).</li>
+<li>Wenn Sie explizit den Datentyp float benötigen, müssen Sie das Suffix F verwenden
+(z. B. 100.0F).</li>
+</ul>
+<h5 id="boolescher-datentyp-1">Boolescher Datentyp</h5>
+<p>Für die Eingabe eines logischen Wertes existieren lediglich die beiden Literale true (wahr) und
+false (falsch).</p>
+<h5 id="alphanumerischer-datentyp-char">Alphanumerischer Datentyp char</h5>
+<ul>
+<li>Einzelne Zeichen werden bei der Wertzuweisung in Apostrophe 7 eingeschlossen.</li>
+<li>Sie können ein Zeichen auch als Unicode-Escape-Sequenz darstellen. Die Unicode-Repräsentation
+ist dann in Apostrophe 7 zu setzen. Escape-Sequenzen beginnen mit einem Backslash <code>\</code>.</li>
+<li>Mit der Escape-Sequenz <code>\u</code> können Sie den Unicode für das gewünschte Zeichen direkt angeben.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Escape Sequenz</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\b</td>
+<td>Backspace</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>Tabulator</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>line feed</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>form feed</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>return</td>
+</tr>
+<tr>
+<td>\&quot;</td>
+<td>Anführungszeichen</td>
+</tr>
+<tr>
+<td>\&rsquo;</td>
+<td>Hochkomma</td>
+</tr>
+<tr>
+<td>\\</td>
+<td>Backslash</td>
+</tr>
+</tbody>
+</table>
+<h4 id="wrapper-klassen">Wrapper-Klassen</h4>
+<p>Viele Methoden innerhalb von Java erwarten als Parameter einen Object-Typ. Da Sie von primitiven Datentypen keine Objekte bilden können, stellt Java für jeden primitiven Datentyp eine sogenannte Wrapper-Klasse bereit. Die Klassen besitzen ein gekapseltes Attribut, das den Wert speichert, und Methoden, um beispielsweise den entsprechenden primitiven Datentyp zurückzugeben oder eine Konvertierung von String-Typen in den betreffenden Datentyp vorzunehmen.</p>
+<p>Folgende Wrapper-Klassen existieren in Java und sind im Package java.lang enthalten:</p>
+<ul>
+<li>Byte</li>
+<li>Short</li>
+<li>Integer</li>
+<li>Long</li>
+<li>Float</li>
+<li>Double</li>
+<li>Boolean</li>
+<li>Character</li>
+</ul>
+<p>Wrapper Klassen haben Methoden um den primitiven Datentyp zurück zu geben (z.B. <code>int Integer.intValue()</code>), den primitiven Datentyp aus einem String zu konvertieren (z.B. <code>int parseInt(String s)</code>oder <code>valueOf(String s)</code>), in einen String umzuwandeln <code>toString(...)</code></p>
+<h5 id="autoboxing">Autoboxing</h5>
+<p>Die Umwandlung von einem Objekt einer Wrapper-Klasse in den entsprechenden primitiven
+Datentyp können Sie mit der entsprechenden Methode wie z. B.  <code>intValue()</code>erreichen. Um ein
+Objekt zu erstellen, verwenden Sie den Konstruktor der Wrapper-Klasse. Um diese aufwendige
+Schreibweise zu vereinfachen, ist seit der Version Java 5 eine automatische Umwandlung
+implementiert, das sogenannte <strong>Autoboxing</strong>.</p>
+<pre><code class="language-java">Integer number = 10; // nicht empfohlene Variante, verwende besser
+Integer num = Integer.valueOf(10);
+</code></pre>
+<h5 id="unboxing">Unboxing</h5>
+<p>Bezeichnet die Rückumwandlung in einen primitiven Datentyp</p>
+<pre><code class="language-java">int i = number.intValue();
+</code></pre>
+<h3 id="referenztypen">Referenztypen</h3>
+
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  © <a href="">Denk Jonas</a> 2022 | <a href="https://github.com/DenkJo180398">Github</a> | <a href="https://www.instagram.com/thejoesy/">Instagram</a>
+  
+  </footer>
+  </body>
+</html>
+
+<pre><code class="language-java">public class TestDriver{
+    private Transportmittel transport;
+    
+    public void setTransportMittel(Transportmittel transport){
+        this.trasport = transport;
+    }
+    public void writeData(){
+        System.out.println(transport.toString()); 
+    }
+    
+    public static void main(String args){
+        TestDriver td = new TestDriver();
+        
+        td.setTransportMittel(new Auto());
+        td.writeData();
+    }
+}
+</code></pre>
+<p>In diesem Beispiel wissen wir, dass ein <em>Transportmittel</em> eine <code>toString()</code>Methode besitzt und wir können diese zur Compilezeit in der Methode <code>writeData()</code>verwenden.
+Zur Laufzeit wird allerdings in der <em>main</em> Methode ein Objekt des Typs <em>Auto</em> erzeugt und übergeben, d.h. in der Methode <code>writeData()</code>wird zur Laufzeit entschieden, dass <code>toString()</code>aus der Klasse <em>Auto</em> aufgerufen wird.</p>
+<h4 id="sichtbarkeiten">Sichtbarkeiten</h4>
+<ul>
+<li>public: uneingeschränkter Zugriff</li>
+<li>private: nur innerhalb der eigenen Klasse</li>
+<li>protected: Zugriff aus der Klasse und deren Subklassen</li>
+<li>default (keine Sichtbarkeit angegeben): Zugriff für Klassen des Packages</li>
+</ul>
+<h4 id="sichtbarkeiten-und-vererbung">Sichtbarkeiten und Vererbung</h4>
+<ul>
+<li>
+<p>public: Attribute und Methoden werden vererbt</p>
+</li>
+<li>
+<p>private: Attribute und Methoden werden <strong>nicht</strong> vererbt</p>
+</li>
+<li>
+<p>protected: Attribute und Methoden werden vererbt</p>
+</li>
+<li>
+<p>default (keine Sichtbarkeit angegeben): Attribute und Methoden werden nur innerhalb eines Packages vererbt</p>
+</li>
+</ul>
+
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  © <a href="">Denk Jonas</a> 2022 | <a href="https://github.com/DenkJo180398">Github</a> | <a href="https://www.instagram.com/thejoesy/">Instagram</a>
+  
+  </footer>
+  </body>
+</html>
+

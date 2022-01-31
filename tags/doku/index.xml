@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Doku on BloggingSite - Denk</title>
+    <link>https://bloggingsite-denk.github.io/tags/doku/</link>
+    <description>Recent content in Doku on BloggingSite - Denk</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 31 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://bloggingsite-denk.github.io/tags/doku/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dokumentation</title>
+      <link>https://bloggingsite-denk.github.io/note/2022/01/31/another-note/</link>
+      <pubDate>Mon, 31 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://bloggingsite-denk.github.io/note/2022/01/31/another-note/</guid>
+      <description>(zusammengefasst)
+ Projekt erstellt Theme hinzugefügt (HUGO-XMIN) ExampleSite hinzugefügt config.yaml  editiert (&amp;ldquo;Unterseiten&amp;rdquo; gelöscht und geändert) Notes hinzugefügt mit richtiger Syntax am Anfang Home und About geändert   essentielle Syntax am Anfang einer Note (Bsp.) --- title: 1. Deutsch SA Unter Dunkel-Touristen am 25. November 2021 author: Denk Jonas date: &#39;2021-11-25&#39; categories: - Deutsch 2021/22 - Franzmayr Edith 2021/22 tags: - Franzmayr Edith - Deutsch slug: another-note ---  </description>
+    </item>
+    
+  </channel>
+</rss>

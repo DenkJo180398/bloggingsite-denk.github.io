@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>01 Einführung JUnit | BloggingSite - Denk</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Menu</a></li>
+      
+      <li><a href="/tags/">QuickFind</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">01 Einführung JUnit</span></h1>
+<h2 class="author">Haslinger Peter / Hauser Klemens</h2>
+<h2 class="date">2021/10/14</h2>
+</div>
+
+<main>
+<h1 id="junit-4---automatisiertes-testen">JUnit 4 - Automatisiertes Testen</h1>
+<h4 id="grundlagen">Grundlagen</h4>
+<p><strong>JUnit</strong> ist ein Framework zum Testen von Java-Programmen, das besonders für automatisierte Unit-Tests einzelner <em>Units</em> (das sind entweder Klassen oder auch nur Methoden) geeignet ist.</p>
+<p>Diese Anleitung bezieht sich auf JUnit 4. Um JUnit verwenden zu können, muss junit.jar als Bibliothek verfügbar sein.</p>
+<ul>
+<li>Maven Repository: <a href="https://mvnrepository.com/artifact/junit/junit/4.12">https://mvnrepository.com/artifact/junit/junit/4.12</a></li>
+<li>Maven?
+<ul>
+<li><a href="https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html">https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html</a></li>
+<li><a href="https://www.jetbrains.com/help/idea/maven-support.html">https://www.jetbrains.com/help/idea/maven-support.html</a></li>
+</ul>
+</li>
+<li>jUnit5: <a href="https://www.baeldung.com/junit-5">https://www.baeldung.com/junit-5</a></li>
+</ul>
+<h3 id="begriffsdefinitionen">Begriffsdefinitionen</h3>
+<ul>
+<li><strong>Testklasse/Testcode</strong>: Als Testklasse wird eine Klasse bezeichnet, die Methoden zum Testen von Code enthält. Die einzige Bedingung besteht darin, dass sie durch einen
+öffentlichen Default-Konstruktor instanzierbar ist. In der Testklasse sind mit Hilfe der JUnit-Annotationen Testmethoden gekennzeichnet.</li>
+<li><strong>Testmethode</strong>: Testmethoden bezeichnen Methoden, die durch Annotationen als solche gekennzeichnet sind. Jede Methode, die das Sichtbarkeitsattribute „public“ besitzt, keine Parameter verlangt und als Return-Typ void liefert, darf als Testmethode gekennzeichnet werden.</li>
+<li><strong>Testfall</strong>: Ein Testfall ist zunächst ein bestimme Vorgehensweise, wie ein Teil einer Software getestet werden soll, zu ihm gehören Testwerte und das zu erwartende Ergebnis.
+Abhängig von der Komplexität der zu testenden Funktionalität können Testfälle der selben Art zu einer Testmethode zusammen gefasst werden.</li>
+<li><strong>Testframework</strong>: JUnit 4 wird als Testframework bezeichnet.</li>
+</ul>
+<h3 id="empfehlungen">Empfehlungen</h3>
+<p>In jeder beliebigen Klasse können Testfälle definiert werden. Aus Gründen der Übersicht ist zu empfehlen, <strong>Testcode getrennt</strong> zu halten und die <strong>Testmethoden</strong> in eine oder mehrere separate Klassen <strong>auszulagern</strong> .
+Der <strong>Name der Klasse</strong> kann frei gewählt werden. Eine verbreitete Konvention ist, den Namen aus dem Namen der zu testenden Klasse und dem <strong>Postfix „Test“</strong> zusammenzusetzen.
+Die Testklasse sollte <strong>für jede Methode</strong> , in der etwas zu testen ist, <strong>mindestens eine Testmethode</strong> enthalten.
+Neben der Funktionalität sind auch die Vorbedingungen zu prüfen. Die Testmethoden überprüfen jeweils nur einen atomaren Teil, so dass eine Methode auch durch verschiedene Tests getestet werden sollte. Die Vorbedingungen sollten in der Reihenfolge, in der sie im zu testenden Code definiert sind, geprüft werden.
+Es erleichtert später die Suche nach der Ursache für fehlgeschlagene Tests.
+<strong>Keinen Testcode zum Testen des Compilers schreiben!</strong></p>
+<h3 id="verwendung">Verwendung</h3>
+<p>Testmethoden werden durch die JUnit-Annotation @Test gekennzeichnet.
+Zum Überprüfen liefert das Testframework die Klasse org.junit.Assert . Tritt eine Abweichung auf, wird ein java.lang.AssertionError oder ein davon abgeleiteter Fehler geworfen.</p>
+<h4 id="einfache-testklasse">Einfache Testklasse</h4>
+<p>Die Verwendung soll zunächst durch ein einfaches Beispiel verdeutlicht
+werden.</p>
+<pre><code class="language-java">import java.util.*;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class CollectionTest {
+    @Test
+    public void sortedTest(){
+        Set&lt;String&gt; s = new TreeSet&lt;String&gt;();
+        s.add(&quot;Bär&quot;);
+        s.add(&quot;Aal&quot;);
+        
+        Iterator&lt;String&gt; iter = s.iterator();
+        assertEquals(&quot;Aal&quot;, iter.next());
+        assertEquals(&quot;Bär&quot;, iter.next());
+    }
+}
+</code></pre>
+<p>Zuerst werden die benötigten Klassen importiert. In Zeile 3 wird die Technik der <strong>statischen</strong> <strong>Imports</strong>, die seit Java 1.5 möglich sind, genutzt.
+Sie bewirkt, dass alle statischen Methoden der Klasse <code>Assert</code> lokal verfügbar sind.
+Die Methode <code>sortedSet()</code> prüft, ob die Klasse <code>TreeSet</code> aus dem Package <code>java.util</code> Strings korrekt sortiert. Dazu werden zwei Strings in einen <code>TreeSet</code> eingefügt, anschließend per Iterator der Reihe nach aus der Collection gelesen und mit <code>assertEquals</code> auf die erwarteten
+Werte überprüft.</p>
+<h4 id="das-werfen-von-exceptions-testen">Das Werfen von Exceptions testen</h4>
+<p>Neben der „normalen“ Funktionalität sollte beim Test auch die korrekte Fehlerbehandlung getestet werden. JUnit unterstützt das gezielte Abfangen von Exceptions.</p>
+<pre><code class="language-java">import java.util.List;
+import java.util.ArrayList;
+import org.junit.Test;
+
+public class ExceptionTest{
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void exceptionListTest(){
+        List&lt;String&gt; l = new ArrayList&lt;String&gt;();
+        l.add(&quot;Bär&quot;);
+        l.add(&quot;Aal&quot;);
+        
+        l.get(2);
+    }
+}
+</code></pre>
+<p>Bei der Annotation <code>@Test</code> wird der Zusatz <code>(expected = IndexOutOfBoundsException.class) </code>angehängt.
+Er besagt, dass das Auftreten einer Exception erwartet wird. Die Exception tritt bei l.get(2) auf, da der Index um 1 überschritten wird. In diesem Fall wird eine <code>RuntimeException</code> , also eine unchecked Exception, erwartet.
+Wird auf eine checked Exception geprüft, muss die Testmethodendeklaration mit dem Zusatz <code>throws</code> &hellip;Exception versehen werden.</p>
+<h3 id="einen-definierten-startzustand-herstellen">Einen definierten Startzustand herstellen</h3>
+<p>Häufig kommt es vor, dass viele oder sogar alle Testfälle einer Testklasse eine identische Umgebung benötigen. Werden zum Beispiel die Methoden der Klasse List getestet, so benötigt jeder Testfall mindestens ein Objekt vom Typ List. Auch ist es für viele Fälle sehr
+sinnvoll, wenn die List-Instanz bereits einige Objekte enthält. Um diese Vorbereitungen nicht in jeder Testmethode erneut hinschreiben zu müssen, bietet JUnit die Annotation <code>@Before</code> . Sie wird vor eine Methode geschrieben und sorgt dafür, dass diese Methode <strong>vor jedem</strong>
+<strong>Testfall</strong> aufgerufen wird.
+Es wird eine Methode <code>setUp</code> definiert. Sie instanziiert zwei Listen und füllt bereits einige Wert in die Listen ein. Die Listen wurden als private Klassenvariable deklariert, so dass auf sie in allen Testmethoden zugegriffen werden kann. Dadurch, dass die setUp-Methode mit der
+Annotation <code>@Before</code> gekennzeichnet ist, wird sie vor jeder Testmethode aufgerufen und erzeugt so vor jedem Test die beiden Listen mit dem entsprechenden Inhalt.</p>
+<pre><code class="language-java">import java.util.List;
+import java.util.ArrayList;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+public class ListTest {
+    private List&lt;String&gt; list1;
+    private List&lt;String&gt; list2;
+    
+    @Before
+    public void setUp(){
+        list1 = new ArrayList&lt;String&gt;();
+        list1.add(&quot;William DeWorde&quot;);
+        list1.add(&quot;Herbert Starkimarm&quot;);
+        
+        list2 = new ArrayList&lt;String&gt;();
+        list2.add(&quot;Samuel Mumm&quot;);
+    }
+    
+    @Test
+    public void remove(){
+        list1.clear();
+        assertEquals(0, list1.size());
+    }
+    
+    @Test
+    public void addAll(){
+        list1.addAll(list2);
+        assertEquals(3, list1.size());
+    }
+}
+</code></pre>
+<h3 id="kurz-referenz">Kurz-Referenz</h3>
+<p>Dieser Abschnitt enthält eine Auswahl der in JUnit 4 existierenden Annotationen und Assert-Methoden. Diese Referenz ist nicht als vollständig anzusehen. Sie enthält lediglich die wichtigsten Punkte zum schnellen Nachschlagen.</p>
+<h4 id="annotation-für-methoden">Annotation für Methoden</h4>
+<table>
+<thead>
+<tr>
+<th>Annotation</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@Test</td>
+<td>Kennzeichnung als Testfall</td>
+</tr>
+<tr>
+<td>@Test(expected=&hellip;Exception.class)</td>
+<td>Kennzeichnung als Testfall mit der Festlegung, dass der Test nur erfolgreich ist, wenn die geforderte Exception auftritt.</td>
+</tr>
+<tr>
+<td>@Test(timeout = &hellip;ms)</td>
+<td>Kennzeichnung als Testfall mit der Festlegung, dass der Test nur erfolgreich ist, wenn die geforderte Zeit in ms nicht überschritten wird.</td>
+</tr>
+<tr>
+<td>@Before</td>
+<td>Ausführung vor jedem Aufruf einer Testmethode zum Aufbau einer definierten Testumgebung.</td>
+</tr>
+<tr>
+<td>@After</td>
+<td>Ausführung nach jedem Aufruf einer Testmethode zur Erledigung von Aufräumarbeiten.</td>
+</tr>
+<tr>
+<td>@BeforeClass</td>
+<td>Eine derartig gekennzeichnete Methode muss statisch definiert sein. Die Annotation dient der Kennzeichnung zur einmaligen Ausführung <strong>vor</strong> dem Aufruf aller anderen Testmethoden.</td>
+</tr>
+<tr>
+<td>@AfterClass</td>
+<td>Eine derartig gekennzeichnete Methode muss statisch definiert sein. Die Annotation dient der Kennzeichnung zur einmaligen Ausführung <strong>nach</strong> dem Aufruf aller anderen Testmethoden.</td>
+</tr>
+<tr>
+<td>@Ignore(&ldquo;Kommentar&rdquo;)</td>
+<td>Methode wird temporär nicht ausgeführt. Es sollte unbedingt ein Kommentar mit übergeben werden, dieser wird im Protokoll des Testlaufs ausgegeben.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="auswahl-an-assert-methoden">Auswahl an Assert-Methoden</h4>
+<p>Die folgende Tabelle zeigt eine Auswahl der Methoden, die sich in der Klasse <code>org.junit.Assert</code> befinden.
+Alle Methoden werfen im Fehlerfall einen <code>java.lang.AssertionError</code>, der ggf. noch Details zum Fehler enthält.
+Jede Assert-Methode existiert in zwei Ausführungen; in der Form wie in der Tabelle gelistet und zusätzlich mit dem ersten Parameter String message, der weitere Informationen zum Fehler enthalten kann.
+Die Message wird durch den AssertionError ausgegeben.</p>
+<table>
+<thead>
+<tr>
+<th>Assert-Methode</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>assertEquals(Object exp, Object act)</td>
+<td>Überprüft anhand der equals-Methode, des jeweiligen Objektes, ob zwei Objekte identisch sind. Auch für double, int,&hellip;  sowie Arrays möglich.</td>
+</tr>
+<tr>
+<td>assertEquals(double exp, double act, double delta)</td>
+<td>Überprüft ob 2 double Werte bis auf die Differenz delta identisch sind.</td>
+</tr>
+<tr>
+<td>assertFalse(boolean condition)</td>
+<td>Prüft ob die Bedingung falsch ist.</td>
+</tr>
+<tr>
+<td>assertNotNull(Object object)</td>
+<td>Überprüft ob das Objekt ungleich null ist.</td>
+</tr>
+<tr>
+<td>assertNotSame(Object unexp, Object act)</td>
+<td>Überprüft ob zwei Referenzen auf unterschiedliche Objekte verweisen</td>
+</tr>
+<tr>
+<td>assertTrue(boolean condition)</td>
+<td>Prüft ob die Bedingung wahrist.</td>
+</tr>
+<tr>
+<td>assertNull(Object obj)</td>
+<td>Überprüft ob das Objekt gleich null ist.</td>
+</tr>
+<tr>
+<td>assertSame(Object exp, Object act)</td>
+<td>Prüft ob zwei Referenzen auf das idente Objekt verweisen</td>
+</tr>
+<tr>
+<td>fail(message)</td>
+<td>Keine Prüfmethode. Lässt einen Test explizit fehlschlagen</td>
+</tr>
+</tbody>
+</table>
+<p>Da es sich bei den Assert-Methoden um statische Methoden der Klasse <code>Assert</code> handelt, ist der Aufruf etwas länglich: <code>Assert.assertNotNull(o);</code>
+Dies ist insbesondere bei der häufigen Verwendung der Assert-Methoden in den Testmethoden eher unschön.
+Durch die Angabe der folgenden Import-Anweisung kann der Klassenname beim Aufruf der Assert-Methode entfallen und dadurch der Testcode deutlich kompakter geschrieben werden:
+<code>import static org.junit.Assert.∗;</code></p>
+
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  © <a href="">Denk Jonas</a> 2022 | <a href="https://github.com/DenkJo180398">Github</a> | <a href="https://www.instagram.com/thejoesy/">Instagram</a>
+  
+  </footer>
+  </body>
+</html>
+

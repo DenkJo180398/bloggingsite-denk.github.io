@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Haslinger Peter 2021/22 on BloggingSite - Denk</title>
+    <link>https://bloggingsite-denk.github.io/categories/haslinger-peter-2021/22/</link>
+    <description>Recent content in Haslinger Peter 2021/22 on BloggingSite - Denk</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://bloggingsite-denk.github.io/categories/haslinger-peter-2021/22/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>02 HashCode und Equals</title>
+      <link>https://bloggingsite-denk.github.io/note/2021/10/20/another-note/</link>
+      <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bloggingsite-denk.github.io/note/2021/10/20/another-note/</guid>
+      <description>hashCode, equals Methode hashCode() Die Methode hashCode liefert einen möglichst eindeutigen Wert in Form eines int zur Identifikation des Inhalts eines Objekts zurück. Dieser Wert wird üblicherweise anhand der Eigenschaften des implementierenden Objekts berechnet. Wenn zwei Objekte einen unterschiedlichen hashCode besitzen, können Sie inhaltlich nicht gleich sein. Besitzen zwei Objekte einen identischen hashcode, können sie inhaltlich gleich sein, müssen aber nicht. Außerdem sollte die Berechnung des hashCodes schnell möglich sein.</description>
+    </item>
+    
+    <item>
+      <title>01 Einführung JUnit</title>
+      <link>https://bloggingsite-denk.github.io/note/2021/10/14/another-note/</link>
+      <pubDate>Thu, 14 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bloggingsite-denk.github.io/note/2021/10/14/another-note/</guid>
+      <description>JUnit 4 - Automatisiertes Testen Grundlagen JUnit ist ein Framework zum Testen von Java-Programmen, das besonders für automatisierte Unit-Tests einzelner Units (das sind entweder Klassen oder auch nur Methoden) geeignet ist.
+Diese Anleitung bezieht sich auf JUnit 4. Um JUnit verwenden zu können, muss junit.jar als Bibliothek verfügbar sein.
+ Maven Repository: https://mvnrepository.com/artifact/junit/junit/4.12 Maven?  https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html https://www.jetbrains.com/help/idea/maven-support.html   jUnit5: https://www.baeldung.com/junit-5  Begriffsdefinitionen  Testklasse/Testcode: Als Testklasse wird eine Klasse bezeichnet, die Methoden zum Testen von Code enthält.</description>
+    </item>
+    
+    <item>
+      <title>03 TDD TextDrivenDevelopment</title>
+      <link>https://bloggingsite-denk.github.io/note/2021/09/27/another-note/</link>
+      <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bloggingsite-denk.github.io/note/2021/09/27/another-note/</guid>
+      <description>Test Driven Development CLIL (Content and Language Integrated Learning) What is Test Driven Development? The steps of test first development (TFD) are overviewed in the UML activity diagram of Figure 1 .
+ The first step is to quickly add a test, basically just enough code to fail. Next you run your tests, often the complete test suite although for sake of speed you may decide to run only a subset, to ensure that the new test does in fact fail.</description>
+    </item>
+    
+    <item>
+      <title>04 Solid</title>
+      <link>https://bloggingsite-denk.github.io/note/2021/09/27/another-note/</link>
+      <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bloggingsite-denk.github.io/note/2021/09/27/another-note/</guid>
+      <description>Objektorientiertes Design S.O.L.I.D Software Development Was ist S.O.L.I.D.? Zusammenführung der fünf wichtigsten Prinzipien des OOD (Objektorientiertes Design) Diese Prinzipien wurden von Robert C. Martin unter dem Namen SOLID Principles zusammengefasst. Quellen:
+ http://de.wikipedia.org/wiki/Prinzipien_objektorientierten_Designs http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod http://www.yellow-brick-code.org http://blog.gauffin.org/     Prinzip Beschreibung     Single responsibility principle Eine Klasse sollte nur eine Verantwortlichkeit haben.   Open/closed principle Wenige Abhängigkeiten, Abstraktion.   Liskov substitution principle (design by contract) Abgeleitete Klassen müssen durch die Basisklasse ersetzbar sein.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>02 HashCode und Equals | BloggingSite - Denk</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Menu</a></li>
+      
+      <li><a href="/tags/">QuickFind</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">02 HashCode und Equals</span></h1>
+<h2 class="author">Haslinger Peter / Hauser Klemens</h2>
+<h2 class="date">2021/10/20</h2>
+</div>
+
+<main>
+<h1 id="hashcode-equals-methode">hashCode, equals Methode</h1>
+<h4 id="hashcode">hashCode()</h4>
+<p>Die Methode <code>hashCode</code> liefert einen möglichst eindeutigen Wert in Form eines <code>int</code> zur Identifikation des <strong>Inhalts</strong> eines Objekts zurück. Dieser Wert wird üblicherweise anhand der Eigenschaften des implementierenden Objekts berechnet.
+Wenn zwei Objekte einen unterschiedlichen <code>hashCode</code> besitzen, können Sie inhaltlich nicht gleich sein. Besitzen zwei Objekte einen identischen <code>hashcode</code>, <strong>können</strong> sie inhaltlich gleich sein, <strong>müssen aber nicht</strong>. Außerdem sollte die Berechnung des <code>hashCodes</code> schnell möglich sein.</p>
+<p>Deshalb wird <code>equals</code> beim Vergleich von mehreren Objekten miteinander oftmals mit <code>hashCode</code> kombiniert. Zuerst wird überprüft, ob beide Objekte den selben <code>hashCode</code> besitzen. Trifft dies zu, wird die  <code>equals</code>-Methode aufgerufen, um die wirkliche Gleichheit zu testen.
+Ist der <code>hashCode</code> allerdings nicht identisch, ist es völlig ausgeschlossen, dass die Objekte dennoch den selben Inhalt besitzen.</p>
+<p>Aus diesem Grund ist es umso wichtiger, dass Sie eine korrekte und schnelle Implementierung von <code>hashCode</code> wählen!</p>
+<p><strong>Richtlinien zur Implementierung von hashCode</strong>:</p>
+<ul>
+<li>Die Berechnung sollte schnell sein.</li>
+<li>Alles, was von <code>equals</code> als identisch angesehen wird, hat auch den gleichen <code>hashCode</code>.</li>
+<li>Alles, was den selben <code>hashCode</code> hat, muss laut <code>equals</code> nicht identisch sein.</li>
+<li>In die Berechnung des <code>hashCodes</code> dürfen nur Attribute einfließen, die auch beim Vergleich mit <code>equals</code> berücksichtigt wurden.</li>
+<li>Es müssen nicht alle Attribute, die von <code>equals</code> berücksichtigt wurden, auch im <code>hashCode</code> Verwendung finden. Attribute, die <strong>meistens</strong> den selben Wert haben (oder jedes einzelne Element eines großen <strong>Arrays</strong>) müssen z. B. oftmals nicht berücksichtigt werden.</li>
+<li>Jedem Attribut, das in die Berechnung mit einfließt, muss ein <code>Integer</code>-Wert zugewiesen werden können (z.B. <code>long intValue = Double.doubleToLongBits(a)</code>).</li>
+<li>Die <code>Integer</code>-Werte der Attribute werden addiert und optional mit einer beliebigen (Prim-)Zahl (nicht zu groß) multipliziert.</li>
+<li>Der mehrmalige Aufruf der <code>hashCode</code>-Methode muss immer  den selben Wert zurück liefern – außer der Inhalt des Objekts hat sich  seit dem letzten Aufruf verändert, oder der aktuelle Programmlauf wurde  abgebrochen.</li>
+</ul>
+<h4 id="wichtige-regeln-für-hashcode-und-equals">Wichtige Regeln für hashCode und equals:</h4>
+<ul>
+<li>
+<p><strong>equals</strong></p>
+<ul>
+<li>Wird ein Objekt mit sich selbst verglichen, wird <code>true</code> zurückgeliefert.</li>
+<li>Ist das zu vergleichende Objekt <code>null</code>, wird <code>false</code> zurückgegeben.</li>
+<li>Der Vergleich von Objekt 1 mit Objekt 2 muss das selbe Ergebnis liefern, wie der Vergleich von Objekt 2 mit Objekt 1.</li>
+<li>Wenn Objekt 1 gleich Objekt 2 ist und Objekt 2 gleich Objekt 3, dann muss Objekt 1 auch gleich Objekt 3 sein.</li>
+<li>Auch nach <em>n</em> Vergleichen zweier Objekte verändert sich das Resultat nicht.</li>
+</ul>
+</li>
+<li>
+<p><strong>hashCode</strong></p>
+<ul>
+<li>
+<p><code>hashCode</code> liefert immer den gleichen Rückgabewert.
+Dies gilt aber nur, wenn</p>
+<ul>
+<li>sich der Inhalt des Objekts seit dem letzten Aufruf nicht verändert hat.</li>
+<li>das Programm zwischenzeitlich nicht beendet wurde.</li>
+</ul>
+</li>
+<li>
+<p>Sind zwei Objekte gleich in Bezug auf ihre <code>equals</code>Methode, so generieren sie auch den selben <code>hashCode</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Seit Java 7 gibt es die Methode<code>Objects.hashCode()</code>um einen hashCode einfach zu generieren.
+IntelliJ und Eclipse bieten an hashCode() und equals() automatisch zu generieren.</p>
+
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  © <a href="">Denk Jonas</a> 2022 | <a href="https://github.com/DenkJo180398">Github</a> | <a href="https://www.instagram.com/thejoesy/">Instagram</a>
+  
+  </footer>
+  </body>
+</html>
+
